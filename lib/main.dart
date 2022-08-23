@@ -9,15 +9,21 @@ void main() {
           title: Text('QUIZE'),
           backgroundColor: Colors.blueGrey,
         ),
-        body: quiz(),
+        body: quize(),
       ),
     ),
   );
 }
 
-class quiz extends StatelessWidget {
-  const quiz({Key? key}) : super(key: key);
 
+class quize extends StatefulWidget {
+  const quize({Key? key}) : super(key: key);
+
+  @override
+  State<quize> createState() => _quizeState();
+}
+
+class _quizeState extends State<quize> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -73,19 +79,5 @@ class quiz extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class quize extends StatefulWidget {
-  const quize({Key? key}) : super(key: key);
-
-  @override
-  State<quize> createState() => _quizeState();
-}
-
-class _quizeState extends State<quize> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
