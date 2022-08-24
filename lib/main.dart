@@ -24,26 +24,7 @@ class quize extends StatefulWidget {
 
 class _quizeState extends State<quize> {
   List<Widget> scorekeper = [
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    )
+
   ];
 
   @override
