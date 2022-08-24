@@ -15,7 +15,6 @@ void main() {
   );
 }
 
-
 class quize extends StatefulWidget {
   const quize({Key? key}) : super(key: key);
 
@@ -76,6 +75,16 @@ class _quizeState extends State<quize> {
               ),
             ),
           ),
+          Expanded(
+            child: Row(
+              children: [
+                Icon(
+                  Icons.check,
+                  color:Colors.green,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
