@@ -23,6 +23,29 @@ class quize extends StatefulWidget {
 }
 
 class _quizeState extends State<quize> {
+  List<Widget> scorekeper = [
+    Icon(
+      Icons.check,
+      color: Colors.green,
+    ),
+    Icon(
+      Icons.close,
+      color: Colors.red,
+    ),
+    Icon(
+      Icons.check,
+      color: Colors.green,
+    ),
+    Icon(
+      Icons.close,
+      color: Colors.red,
+    ),
+    Icon(
+      Icons.check,
+      color: Colors.green,
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,6 +77,15 @@ class _quizeState extends State<quize> {
                   primary: Colors.white,
                 ),
                 onPressed: () {
+                  setState(() {
+                    scorekeper.add(
+                      Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      ),
+                    );
+                  });
+
                   print('False button clicked');
                 },
                 child: Text("False"),
@@ -77,14 +109,9 @@ class _quizeState extends State<quize> {
           ),
           Expanded(
             child: Row(
-              children: [
-                Icon(
-                  Icons.check,
-                  color:Colors.green,
-                ),
-              ],
+              children: scorekeper,
             ),
-          )
+          ),
         ],
       ),
     );
