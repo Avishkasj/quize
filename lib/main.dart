@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
 
 void main() {
   return runApp(
@@ -25,13 +26,14 @@ class quize extends StatefulWidget {
 class _quizeState extends State<quize> {
   List<Widget> scorekeper = [];
 
-  List<String> questions = [
-    'A group of crocodiles are called shrewdness',
-    'Dogs can understand up to 250 hand gestures ',
-    'A hair of a polar bear\'s fur is white',
+  List<Question> questionbank = [
+    Question('A group of crocodiles are called shrewdness', false),
+    Question('Dogs can understand up to 250 hand gestures ', true),
+    Question('A hair of a polar bear\'s fur is white', false),
   ];
 
   int qno = 0;
+  bool ans = false;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class _quizeState extends State<quize> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: Text(
-                  questions[qno],
+                  questionbank[qno].questiontext,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -66,6 +68,12 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
+                    ans = questionbank[qno].answer;
+                    if (ans == false) {
+                      print('right');
+                    } else {
+                      print('wrong');
+                    }
                     qno++;
                     scorekeper.add(
                       Icon(
@@ -74,7 +82,6 @@ class _quizeState extends State<quize> {
                       ),
                     );
                   });
-
                   print('False button clicked');
                 },
                 child: Text("False"),
@@ -91,6 +98,12 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
+                    ans = questionbank[qno].answer;
+                    if (ans == true) {
+                      print('right');
+                    } else {
+                      print('wrong');
+                    }
                     qno++;
                   });
                   print('True button clicked');
