@@ -23,9 +23,15 @@ class quize extends StatefulWidget {
 }
 
 class _quizeState extends State<quize> {
-  List<Widget> scorekeper = [
+  List<Widget> scorekeper = [];
 
+  List<String> questions = [
+    'A group of crocodiles are called shrewdness',
+    'Dogs can understand up to 250 hand gestures ',
+    'A hair of a polar bear\'s fur is white',
   ];
+
+  int qno = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +46,8 @@ class _quizeState extends State<quize> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: Text(
-                  'Text thi is pace holder for text',
+                  questions[qno],
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -59,6 +66,7 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
+                    qno++;
                     scorekeper.add(
                       Icon(
                         Icons.check,
@@ -82,6 +90,9 @@ class _quizeState extends State<quize> {
                   primary: Colors.white,
                 ),
                 onPressed: () {
+                  setState(() {
+                    qno++;
+                  });
                   print('True button clicked');
                 },
                 child: Text('TRUE'),
@@ -98,3 +109,7 @@ class _quizeState extends State<quize> {
     );
   }
 }
+
+// A group of crocodiles are called shrewdness - False
+// Dogs can understand up to 250 hand gestures - True
+// A hair of a polar bear's fur is white - False
