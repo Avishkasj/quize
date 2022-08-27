@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
+import 'quize_brain.dart';
+
+
+Quizbrain quizbrain = Quizbrain();
 
 void main() {
   return runApp(
@@ -26,11 +29,6 @@ class quize extends StatefulWidget {
 class _quizeState extends State<quize> {
   List<Widget> scorekeper = [];
 
-  List<Question> questionbank = [
-    Question('A group of crocodiles are called shrewdness', false),
-    Question('Dogs can understand up to 250 hand gestures ', true),
-    Question('A hair of a polar bear\'s fur is white', false),
-  ];
 
   int qno = 0;
   bool ans = false;
@@ -48,7 +46,7 @@ class _quizeState extends State<quize> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: Text(
-                  questionbank[qno].questiontext,
+                  quizbrain.questionbank[qno].questiontext,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -68,7 +66,7 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
-                    ans = questionbank[qno].answer;
+                    ans = quizbrain.questionbank[qno].answer;
                     if (ans == false) {
                       print('right');
                     } else {
@@ -98,7 +96,7 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
-                    ans = questionbank[qno].answer;
+                    ans = quizbrain.questionbank[qno].answer;
                     if (ans == true) {
                       print('right');
                     } else {
