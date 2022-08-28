@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quize_brain.dart';
-
+import 'question.dart';
 
 Quizbrain quizbrain = Quizbrain();
 
@@ -29,7 +29,6 @@ class quize extends StatefulWidget {
 class _quizeState extends State<quize> {
   List<Widget> scorekeper = [];
 
-
   int qno = 0;
   bool ans = false;
 
@@ -46,7 +45,7 @@ class _quizeState extends State<quize> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: Text(
-                  quizbrain.questionbank[qno].questiontext,
+                  quizbrain.getqtext(quizbrain.qusno),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -66,13 +65,13 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
-                    ans = quizbrain.questionbank[qno].answer;
+                    ans = quizbrain.getans(quizbrain.qusno);
                     if (ans == false) {
                       print('right');
                     } else {
                       print('wrong');
                     }
-                    qno++;
+                    quizbrain.netq();
                     scorekeper.add(
                       Icon(
                         Icons.check,
@@ -96,13 +95,13 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
-                    ans = quizbrain.questionbank[qno].answer;
+                    ans = quizbrain.getans(quizbrain.qusno);
                     if (ans == true) {
                       print('right');
                     } else {
                       print('wrong');
                     }
-                    qno++;
+                    quizbrain.netq();
                   });
                   print('True button clicked');
                 },
