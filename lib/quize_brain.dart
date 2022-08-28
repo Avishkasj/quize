@@ -1,41 +1,38 @@
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter/material.dart';
 
 import 'question.dart';
-class Quizbrain{
-  int qusno =0;
+
+int i = 0;
+
+class Quizbrain {
+  int qusno = 0;
   List<Question> _questionbank = [
     Question('A group of crocodiles are called shrewdness', false),
     Question('Dogs can understand up to 250 hand gestures ', true),
     Question('A hair of a polar bear\'s fur is white', false),
   ];
 
-
-  void netq(){
-    if(_questionbank.length > qusno+1)
-    qusno++;
-
+  void netq() {
+    if (_questionbank.length > qusno + 1)
+      qusno++;
+    else {
+      i++;
+      if (i > 1) {
+        print("OUT of Qustion");
+        // CupertinoAlertDialog(
+        //   title: Text('Error'),
+        //   content: Text('Quction is over '),
+        // );
+      }
+    }
   }
 
-  int ico()
-  {
-    return _questionbank.length;
+  String getqtext(int qusno) {
+    return _questionbank[qusno].questiontext;
   }
 
-
-
-  String getqtext(int qusno){
-      return _questionbank[qusno].questiontext;
-  }
-
-  bool getans(int qusno){
+  bool getans(int qusno) {
     return _questionbank[qusno].answer;
   }
-
-
-
-
 }
-
-
-

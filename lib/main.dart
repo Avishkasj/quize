@@ -84,7 +84,6 @@ class _quizeState extends State<quize> {
                   primary: Colors.white,
                 ),
                 onPressed: () {
-
                   setState(() {
                     checkans(false);
                     quizbrain.netq();
