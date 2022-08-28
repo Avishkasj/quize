@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+
 import 'question.dart';
 class Quizbrain{
   int qusno =0;
@@ -13,7 +14,14 @@ class Quizbrain{
   void netq(){
     if(_questionbank.length > qusno+1)
     qusno++;
+
   }
+
+  int ico()
+  {
+    return _questionbank.length;
+  }
+
 
 
   String getqtext(int qusno){

@@ -6,5 +6,6 @@ class Question{
    Question(String q, bool a){
      questiontext= q;
      answer = a;
+
    }
 }

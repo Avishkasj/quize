@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'quize_brain.dart';
 import 'question.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 Quizbrain quizbrain = Quizbrain();
 
@@ -10,7 +11,7 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: Text('QUIZE'),
+          title: Text('QUIZ'),
           backgroundColor: Colors.blueGrey,
         ),
         body: quize(),
@@ -31,6 +32,25 @@ class _quizeState extends State<quize> {
 
   int qno = 0;
   bool ans = false;
+
+  void checkans(bool userans) {
+    ans = quizbrain.getans(quizbrain.qusno);
+    if (userans == ans) {
+      scorekeper.add(
+        Icon(
+          Icons.check,
+          color: Colors.green,
+        ),
+      );
+    } else {
+      scorekeper.add(
+        Icon(
+          Icons.close,
+          color: Colors.red,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,22 +84,11 @@ class _quizeState extends State<quize> {
                   primary: Colors.white,
                 ),
                 onPressed: () {
+
                   setState(() {
-                    ans = quizbrain.getans(quizbrain.qusno);
-                    if (ans == false) {
-                      print('right');
-                    } else {
-                      print('wrong');
-                    }
+                    checkans(false);
                     quizbrain.netq();
-                    scorekeper.add(
-                      Icon(
-                        Icons.check,
-                        color: Colors.green,
-                      ),
-                    );
                   });
-                  print('False button clicked');
                 },
                 child: Text("False"),
               ),
@@ -95,15 +104,9 @@ class _quizeState extends State<quize> {
                 ),
                 onPressed: () {
                   setState(() {
-                    ans = quizbrain.getans(quizbrain.qusno);
-                    if (ans == true) {
-                      print('right');
-                    } else {
-                      print('wrong');
-                    }
+                    checkans(true);
                     quizbrain.netq();
                   });
-                  print('True button clicked');
                 },
                 child: Text('TRUE'),
               ),
