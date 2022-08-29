@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quize_brain.dart';
-import 'question.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+
 
 Quizbrain quizbrain = Quizbrain();
 
